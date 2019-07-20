@@ -112,7 +112,6 @@ function printQuote() {
     if (randomQuoteObj.tag) {
         msgToDisp += `<p class="tag">${randomQuoteObj.tag}</p>`;
     }
-    console.log(msgToDisp);
     document.getElementById('quote-box').innerHTML = msgToDisp;    
     document.body.style.backgroundColor = randomColorGenerator();
 }
