@@ -94,27 +94,27 @@ function randomColorGenerator() {
     red = Math.floor(Math.random()*256);
     green = Math.floor(Math.random()*256);
     blue = Math.floor(Math.random()*256);
-    const randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
-    return randomColor;
+    return `rgb(${red},${green},${blue})`;
 }
 
 function printQuote() {
     const randomQuoteObj = getRandomQuote();
-    let msgToDisp = '';
-    msgToDisp = '<p class="quote">' + randomQuoteObj.quote + '</p>' + '<p class="source">' + randomQuoteObj.source;
+    let msgToDisp = `
+        <p class="quote">${randomQuoteObj.quote}</p>
+        <p class="source">${randomQuoteObj.source}
+    `
     if (randomQuoteObj.citation) {
-        msgToDisp += '<span class="citation">' + randomQuoteObj.citation + '</span>';
+        msgToDisp += `<span class="citation">${randomQuoteObj.citation}</span>`;
     }
     if (randomQuoteObj.year) {
-        msgToDisp += '<span class="year">' + randomQuoteObj.year + '</span></p>';	
+        msgToDisp += `<span class="year">${randomQuoteObj.year}</span></p>`;	
     }
     if (randomQuoteObj.tag) {
-        msgToDisp += '<p class="tag">' + randomQuoteObj.tag + '</p>';
+        msgToDisp += `<p class="tag">${randomQuoteObj.tag}</p>`;
     }
-    const renderMsgHere = document.getElementById('quote-box');
-    const randomColor = randomColorGenerator();
-    renderMsgHere.innerHTML = msgToDisp;
-    document.body.style.backgroundColor = randomColor;
+    console.log(msgToDisp);
+    document.getElementById('quote-box').innerHTML = msgToDisp;    
+    document.body.style.backgroundColor = randomColorGenerator();
 }
 
 // EVENT HANDLERS
